@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFX - The Future of Code</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #0f2027;
+      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: white;
+    }
+    #overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 32, 39, 0.85);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      z-index: 2;
+    }
+    h1 {
+      font-size: 64px;
+      margin-bottom: 20px;
+      color: #00ffe1;
+      text-shadow: 0 0 10px #00ffe1, 0 0 20px #00ffe1, 0 0 30px #00ffe1;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #00ffe1; }
+      to { text-shadow: 0 0 20px #00ffe1, 0 0 40px #00ffe1; }
+    }
+    p {
+      font-size: 22px;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      color: #d1e8ff;
+    }
+    button, input {
+      padding: 12px 28px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      margin-top: 10px;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    button {
+      background: #00ffe1;
+      color: #000;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00ffe1;
+    }
+    button:hover {
+      background: #00bfa5;
+      box-shadow: 0 0 25px #00ffe1;
+    }
+    input {
+      background: #000;
+      color: #00ffe1;
+      border: 2px solid #00ffe1;
+      width: 250px;
+      text-align: center;
+      box-shadow: 0 0 10px #00ffe1;
+    }
+    #loginSection {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+    }
+    #result {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #90ee90;
+    }
+    #particles-js {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  <div id="overlay">
+    <h1>🚀 NFX: The Future of Code</h1>
+    <p>
+      This website is specially crafted for <strong>Mushab Khan</strong>, a passionate learner 
+      and coder who's been working hard to master Python. From games to websites, his journey 
+      is full of curiosity, dedication, and unstoppable energy. Keep going, you're doing amazing! 🌟
+    </p>
+    <button onclick="showLogin()">Start</button>
+    <div id="loginSection">
+      <input type="text" id="username" placeholder="Enter your name..." />
+      <button onclick="checkName()">Login</button>
+      <div id="result"></div>
+    </div>
+  </div>
+
+  <audio autoplay loop hidden>
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+  </audio>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+  <script>
+    particlesJS("particles-js", {
+      "particles": {
+        "number": { "value": 100 },
+        "color": { "value": "#00ffe1" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.5 },
+        "size": { "value": 3 },
+        "line_linked": {
+          "enable": true,
+          "distance": 150,
+          "color": "#00ffe1",
+          "opacity": 0.4,
+          "width": 1
+        },
+        "move": { "enable": true, "speed": 2 }
+      },
+      "interactivity": {
+        "events": {
+          "onhover": { "enable": true, "mode": "repulse" }
+        }
+      },
+      "retina_detect": true
+    });
+
+    function showLogin() {
+      document.querySelector("h1").style.display = "none";
+      document.querySelector("p").style.display = "none";
+      event.target.style.display = "none";
+      document.getElementById("loginSection").style.display = "flex";
+    }
+
+    function checkName() {
+      const name = document.getElementById("username").value.toLowerCase();
+      const validNames = ["jaish", "ali", "hadi", "umair"];
+      const resultDiv = document.getElementById("result");
+
+      if (validNames.includes(name)) {
+        resultDiv.innerHTML = "🎉 Congratulations!<br>⏳ Please wait a few seconds...";
+        setTimeout(() => {
+          resultDiv.innerHTML = "📞 Contact: <strong>4536384187</strong>";
+        }, 5000);
+      } else {
+        resultDiv.innerHTML = "❌ Name not recognized. Try again.";
+      }
+    }
+  </script>
+</body>
+</html>
